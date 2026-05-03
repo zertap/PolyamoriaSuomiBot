@@ -62,7 +62,9 @@ class AutoDeleteCallBack:
                             print("Did not delete message: {}".format(msg.system_content))
                     await bot_channel.send("Poistin kanavalta **#{}** viestit ennen ajanhetkeä {} UTC (yhteensä {} viestiä)".format(channel.name, prev_time.strftime("%Y-%m-%d %H:%M:%S"), n_deleted))
 
-                    # Autodelete in threads under this channel
+                    # Autodelete in threads under this channel (skip channel types that don't support threads, e.g. VoiceChannel)
+                    if not hasattr(channel, "threads"):
+                        continue
                     all_threads = channel.threads
                     async for T in channel.archived_threads(limit=None):
                         all_threads.append(await T.unarchive()) # Unarchive because we can't delete messages from archived threads
