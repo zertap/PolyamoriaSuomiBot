@@ -3,3 +3,5 @@ pyyaml >= 5.4.1
 apscheduler == 3.8.0
 mysql-connector-python == 8.1.0
 tzdata
+audioop-lts; python_version>='3.13'
+setuptools < 82.0.0
