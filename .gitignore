@@ -6,3 +6,4 @@ config_local.yaml
 .idea/
 
 venv/
+__pycache__/
