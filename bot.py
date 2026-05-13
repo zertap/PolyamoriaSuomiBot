@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 import sys
 
 import discord
@@ -50,7 +51,7 @@ async def on_message(message: discord.Message):
         logging.info(f"on_message {message.id}")
     if message.guild is None:
         return  # DM?
-        
+
     await mybot.process_message(message)
 
 @bot.event
