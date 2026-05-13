@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 import sys
+import asyncio
 
 import discord
 from discord import option
@@ -25,6 +26,9 @@ if cfg.get('DEBUG'):
 
 # Initialize the client
 logging.info("Starting up...")
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
 bot = discord.Bot(intents=discord.Intents(message_content=True, guild_messages=True, guilds=True, messages=True, members=True))
 mybot = None
 
